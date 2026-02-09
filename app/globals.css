@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --yellow-primary: #FFD700;
+    --yellow-dark: #FFC700;
+    --yellow-light: #FFE44D;
+    --dark-bg: #0A0A0A;
+    --dark-card: #1A1A1A;
+    --dark-border: #2A2A2A;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--dark-bg);
+    color: #FFFFFF;
+    overflow-x: hidden;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--dark-border);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--yellow-dark);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.slide-in {
+    animation: slideIn 0.8s ease-out;
+}
+
+/* Utility classes */
+.container-custom {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+    .container-custom {
+        padding: 0 2rem;
+    }
+}
+
+/* Button hover effects */
+.btn-primary {
+    @apply bg-yellow-primary text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300;
+}
+
+.btn-primary:hover {
+    @apply bg-yellow-dark transform scale-105 shadow-lg;
+}
+
+.btn-secondary {
+    @apply bg-dark-card text-white border border-dark-border font-semibold px-6 py-3 rounded-lg transition-all duration-300;
+}
+
+.btn-secondary:hover {
+    @apply border-yellow-primary text-yellow-primary;
+}
+
+/* Card styles */
+.card {
+    @apply bg-dark-card border border-dark-border rounded-xl p-6 transition-all duration-300;
+}
+
+.card:hover {
+    @apply border-yellow-primary shadow-xl transform scale-[1.02];
+}
+
+/* Input styles */
+.input-field {
+    @apply w-full bg-dark-card border border-dark-border text-white px-4 py-3 rounded-lg focus:outline-none focus:border-yellow-primary transition-all duration-300;
+}
+
+.input-field::placeholder {
+    @apply text-gray-500;
+}
+
+/* Text selection */
+::selection {
+    background-color: var(--yellow-primary);
+    color: black;
+}
